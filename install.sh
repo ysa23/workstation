@@ -19,7 +19,7 @@ chmod 755 /usr/local/share/zsh/site-functions
 echo "Make sure to edit .zshrc with t"
 
 # Applications
-brew install iterm2
+brew cask install iterm2
 brew cask install webstorm
 brew cask install goland
 brew cask install datagrip

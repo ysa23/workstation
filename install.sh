@@ -53,6 +53,7 @@ brew install kubectl
 brew install kubectx
 brew install k9s
 brew install fzf
+brew cask install lens
 
 # docker
 brew cask install docker

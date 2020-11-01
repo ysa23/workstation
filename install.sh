@@ -28,6 +28,7 @@ brew cask install postman
 brew cask install telegram
 brew cask install sublime-text
 brew cask install dashlane
+brew cask install slack
 
 # go
 brew install go

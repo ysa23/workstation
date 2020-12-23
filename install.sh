@@ -98,6 +98,9 @@ export NVM_DIR=\"\$HOME/.nvm\"
 source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc\"
 source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc\"
 
+# Blazemeter
+brew install bzt
+
 [[ -s \"\$HOME/.gvm/scripts/gvm\" ]] && source \"\$HOME/.gvm/scripts/gvm\"" >> ~/.zshrc
 
 # Folders

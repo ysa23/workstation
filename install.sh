@@ -19,16 +19,16 @@ chmod 755 /usr/local/share/zsh/site-functions
 echo "Make sure to edit .zshrc with t"
 
 # Applications
-brew cask install iterm2
-brew cask install webstorm
-brew cask install goland
-brew cask install datagrip
-brew cask install visual-studio-code
-brew cask install postman
-brew cask install telegram
-brew cask install sublime-text
-brew cask install dashlane
-brew cask install slack
+brew install --cask iterm2
+brew install --cask webstorm
+brew install --cask goland
+brew install --cask datagrip
+brew install --cask visual-studio-code
+brew install --cask postman
+brew install --cask telegram
+brew install --cask sublime-text
+brew install --cask dashlane
+brew install --cask slack
 
 # go
 brew install go
@@ -42,11 +42,11 @@ brew install yarn
 echo "//npm.pkg.github.com/:_authToken=$GITHUB_PACKAGES_TOKEN" > ~/.npmrc
 
 # VPN
-brew cask install tunnelblick
-brew cask install openvpn-connect
+brew install --cask tunnelblick
+brew install --cask openvpn-connect
 
 # Gcloud
-brew cask install google-cloud-sdk
+brew install --cask google-cloud-sdk
 gcloud init
 
 # K8s
@@ -54,10 +54,10 @@ brew install kubectl
 brew install kubectx
 brew install k9s
 brew install fzf
-brew cask install lens
+brew install --cask lens
 
 # docker
-brew cask install docker
+brew install --cask docker
 
 # Git
 git config --global user.name "$GIT_USER_NAME"

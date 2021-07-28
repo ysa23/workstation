@@ -106,4 +106,5 @@ brew install bzt
 # Folders
 mkdir ~/dev
 
-
+# terraform
+brew install warrensbox/tap/tfswitch

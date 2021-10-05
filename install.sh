@@ -70,7 +70,7 @@ brew install gh
 ssh-keygen -t rsa -b 4096 -C "$GIT_EMAIL"
 
 # P4merge
-brew cask install p4v
+brew install --cask p4v
 git config --global merge.tool p4mergetool
 git config --global mergetool.p4mergetool.cmd 
 git config --global mergetool.p4mergetool.cmd "/usr/local/Caskroom/p4merge.app/Contents/Resources/launchp4merge \$PWD/\$BASE \$PWD/\$REMOTE \$PWD/\$LOCAL \$PWD/\$MERGED"

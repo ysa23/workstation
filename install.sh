@@ -40,6 +40,8 @@ echo "export GOPRIVATE=\"github.com/climacell/*\"" >> ~/.zshrc
 brew install nvm
 brew install yarn
 echo "//npm.pkg.github.com/:_authToken=$GITHUB_PACKAGES_TOKEN" > ~/.npmrc
+nvm install 12
+nvm install 16
 
 # VPN
 brew install --cask tunnelblick

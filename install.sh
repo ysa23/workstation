@@ -5,6 +5,9 @@ GITHUB_PACKAGES_TOKEN=TOKEN # settings => developer settings => personal access 
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 
 # Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -19,16 +22,24 @@ chmod 755 /usr/local/share/zsh/site-functions
 echo "Make sure to edit .zshrc with t"
 
 # Applications
+brew install --cask notion
+
+# Communication
+brew install --cask slack
+brew install --cask zoom
+brew install --cask telegram
+
+# Development
 brew install --cask iterm2
 brew install --cask webstorm
 brew install --cask goland
 brew install --cask datagrip
 brew install --cask visual-studio-code
 brew install --cask postman
-brew install --cask telegram
 brew install --cask sublime-text
+
+# Security
 brew install --cask dashlane
-brew install --cask slack
 
 # go
 brew install go
@@ -100,10 +111,10 @@ export NVM_DIR=\"\$HOME/.nvm\"
 source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc\"
 source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc\"
 
+[[ -s \"\$HOME/.gvm/scripts/gvm\" ]] && source \"\$HOME/.gvm/scripts/gvm\"" >> ~/.zshrc
+
 # Blazemeter
 brew install bzt
-
-[[ -s \"\$HOME/.gvm/scripts/gvm\" ]] && source \"\$HOME/.gvm/scripts/gvm\"" >> ~/.zshrc
 
 # Folders
 mkdir ~/dev

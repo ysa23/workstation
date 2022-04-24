@@ -198,7 +198,7 @@ ssh-keygen -t rsa -b 4096 -C "$GIT_EMAIL"
 # Default editor
 arrayContains EXCLUDE[@] sublime-text
 if [[ "$?" != "0" ]]; then
-  echo "# Default editor
+  echo "# Default editor"
   export EDITOR='subl -w'  
 fi
 
@@ -213,5 +213,8 @@ arrayContains EXCLUDE[@] terraform
 if [[ "$?" == "0" ]]; then
   brew install warrensbox/tap/tfswitch
 fi
+
+# Rosseta
+softwareupdate --install-rosetta
 
 echo "Make sure to edit .zshrc with a theme you like"

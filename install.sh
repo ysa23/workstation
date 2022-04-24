@@ -38,7 +38,7 @@ set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 usage (){
   echo "Usage: ./install.sh -u|--git-user-name <YOUR-GIT-USER-NAME> -e|--git-email <YOUR-GIT-EMAIL> -t|--github-packages-token <GITHUB-PACKAGES-TOKEN> [-x|--exclude <comma separated string for apps that will not be installed>]"
   echo "Usage: Github packages token can be fetched from: github.com => settings => developer settings => personal access tokens"
-  echo "Usage: Available excludes: whatsapp,telegram,visual-studio-code,github,gh,notion,ngrok,goland,awscli,gcloud,sublime-text,go,mongo,tunnelblick,openvpn-connect,k8s,bzt,terraform"
+  echo "Usage: Available excludes: whatsapp,telegram,visual-studio-code,github,gh,notion,ngrok,goland,awscli,gcloud,sublime-text,go,mongo,tunnelblick,openvpn-connect,k8s,bzt,terraform,iterm2"
 }
 
 if [ -z "${GIT_USER_NAME}" ] || [ -z "${GIT_EMAIL}" ] || [ -z "${GITHUB_PACKAGES_TOKEN}" ]; then
@@ -86,7 +86,7 @@ chmod 755 /usr/local/share/zsh/site-functions
 
 # Applications
 install notion --cask 
-install iterm --cask
+install iterm2 --cask
 
 # Dev Apps
 brew install --cask webstorm

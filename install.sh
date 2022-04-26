@@ -162,11 +162,11 @@ git config --global user.email "$GIT_EMAIL"
 brew install --cask p4v
 git config --global merge.tool p4mergetool
 git config --global mergetool.p4mergetool.cmd 
-git config --global mergetool.p4mergetool.cmd "/Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\""
+git config --global mergetool.p4mergetool.cmd '/Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
 git config --global mergetool.p4mergetool.trustExitCode false
 git config --global mergetool.keepBackup false
-git config --global diff.tool p4mergetool
-git config --global difftool.p4mergetool.cmd "/Applications/p4merge.app/Contents/MacOS/p4merge \"$LOCAL\" \"$REMOTE\""
+git config --global diff.tool p4difftool
+git config --global difftool.p4difftool.cmd '/Applications/p4merge.app/Contents/MacOS/p4merge "$LOCAL" "$REMOTE"'
 
 # VPN
 install tunnelblick --cask 

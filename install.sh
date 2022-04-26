@@ -72,8 +72,8 @@ install (){
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 BREW_PREFIX=$(brew --prefix)
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+echo "eval \"$(${BREW_PREFIX}/bin/brew shellenv)\"" >> $HOME/.zprofile
+eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 
 # Zsh
 0>/dev/null sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -139,9 +139,9 @@ nvm install 12
 nvm install 16
 echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.zshrc
 # This loads nvm
-[ -s \"/opt/homebrew/opt/nvm/nvm.sh\" ] && echo "\. \"/opt/homebrew/opt/nvm/nvm.sh\"" >> ~/.zshrc
+[ -s \"${BREW_PREFIX}/opt/nvm/nvm.sh\" ] && echo "\. \"${BREW_PREFIX}/opt/nvm/nvm.sh\"" >> ~/.zshrc
 # This loads nvm bash_completion
-[ -s \"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm\" ] && echo "\. \"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm\"" >> ~/.zshrc
+[ -s \"${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm\" ] && echo "\. \"${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm\"" >> ~/.zshrc
 
 # go
 arrayContains EXCLUDE[@] go

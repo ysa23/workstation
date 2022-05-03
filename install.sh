@@ -71,8 +71,9 @@ install (){
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+BREW_PREFIX=$(brew --prefix)
+echo "eval \"$(${BREW_PREFIX}/bin/brew shellenv)\"" >> $HOME/.zprofile
+eval "$(${BREW_PREFIX}/bin/brew shellenv)"
 
 # Zsh
 0>/dev/null sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -103,8 +104,8 @@ arrayContains EXCLUDE[@] gcloud
 if [[ "$?" == "0" ]]; then
   brew install --cask google-cloud-sdk
   gcloud init
-  source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc\"
-  source \"/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc\"
+  echo "source \"${BREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc\"" >> ~/.zshrc
+  echo "source \"${BREW_PREFIX}/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc\"" >> ~/.zshrc
 fi
 arrayContains EXCLUDE[@] heroku
 if [[ "$?" == "0" ]]; then
@@ -136,19 +137,20 @@ brew install yarn
 echo "//npm.pkg.github.com/:_authToken=$GITHUB_PACKAGES_TOKEN" > ~/.npmrc
 nvm install 12
 nvm install 16
-export NVM_DIR=\"$HOME/.nvm\"
-[ -s \"/opt/homebrew/opt/nvm/nvm.sh\" ] && \. \"/opt/homebrew/opt/nvm/nvm.sh\"  # This loads nvm
-[ -s \"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm\" ] && \. \"/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm\"  # This loads nvm bash_completion
-" >> ~/.zshrc
+echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.zshrc
+# This loads nvm
+[ -s \"${BREW_PREFIX}/opt/nvm/nvm.sh\" ] && echo "\. \"${BREW_PREFIX}/opt/nvm/nvm.sh\"" >> ~/.zshrc
+# This loads nvm bash_completion
+[ -s \"${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm\" ] && echo "\. \"${BREW_PREFIX}/opt/nvm/etc/bash_completion.d/nvm\"" >> ~/.zshrc
 
 # go
 arrayContains EXCLUDE[@] go
 if [[ "$?" == "0" ]]; then
   brew install go
-  zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+  zsh $(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
   git config --global url.git@github.com:.insteadOf https://github.com
   echo "export GOPRIVATE=\"github.com/climacell/*\"" >> ~/.zshrc
-  [[ -s \"\$HOME/.gvm/scripts/gvm\" ]] && source \"\$HOME/.gvm/scripts/gvm\"" >> ~/.zshrc
+  [[ -s \"\$HOME/.gvm/scripts/gvm\" ]] && echo "source \"\$HOME/.gvm/scripts/gvm\"" >> ~/.zshrc
 fi
 
 # docker

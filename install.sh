@@ -91,6 +91,7 @@ install iterm2 --cask
 
 # Dev Apps
 brew install --cask webstorm
+echo "export PATH=\"/Applications/WebStorm.app/Contents/MacOS:$PATH\"" >> ~/.zshrc
 brew install --cask pycharm
 brew install --cask postman
 brew install --cask datagrip

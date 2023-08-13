@@ -220,4 +220,8 @@ fi
 # Rosseta
 softwareupdate --install-rosetta
 
+# Shell
+echo "setopt HIST_IGNORE_SPACE" >> ~/.zshrc
+
+
 echo "Make sure to edit .zshrc with a theme you like"

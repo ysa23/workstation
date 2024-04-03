@@ -202,7 +202,7 @@ ssh-keygen -t rsa -b 4096 -C "$GIT_EMAIL"
 arrayContains EXCLUDE[@] sublime-text
 if [[ "$?" != "0" ]]; then
   echo "# Default editor"
-  export EDITOR='subl -w'  
+  echo "export EDITOR='subl -w'" >> ~/.zshrc
 fi
 
 # Blazemeter

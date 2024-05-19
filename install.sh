@@ -98,6 +98,7 @@ brew install --cask datagrip
 install goland --cask 
 install ngrok --cask 
 install github --cask
+brew install --cask chatgpt
 
 # Cloud CLIs
 install awscli

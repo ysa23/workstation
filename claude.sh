@@ -26,7 +26,7 @@ set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 
 usage (){
   echo "Usage: ./claude.sh -s|--scope <SCOPE OF CLAUDE ACCOUNT>"
-  echo "Usage: create an alias for a separated claude subscription"
+  echo "Usage: create an alias for a separated claude subscription: claude-<scope>"
 }
 
 if [ -z "${SCOPE}" ]; then
